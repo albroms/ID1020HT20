@@ -60,7 +60,8 @@ public class Main<Item> {
         */
 
         //Test code for task 5.
-        /*
+
+
         TaskFiveDoubleLinkedCircularQueue taskFiveQueue = new TaskFiveDoubleLinkedCircularQueue();
         taskFiveQueue.enqueue("Banana");
         taskFiveQueue.enqueue("Apple");
@@ -68,10 +69,13 @@ public class Main<Item> {
         taskFiveQueue.enqueue("Orange");
         taskFiveQueue.enqueue("Pineapple");
 
-        taskFiveQueue.remove(3); //expected result: "Pear" gone.
-        taskFiveQueue.remove(3); //expected result: "Orange" gone.
-        taskFiveQueue.remove(2); //expected result: "Apple" gone.
-         */
+        taskFiveQueue.remove(3); //expected result: "Pear" at index 3 gone. y
+        taskFiveQueue.remove(3); //expected result: "Apple" at index 3 gone. y
+        taskFiveQueue.remove(2); //expected result: "Orange" at index 2 gone. y
+        taskFiveQueue.remove(2); //expected result: "Banana" at index 2 gone. y
+        taskFiveQueue.remove(1); //expected result: "Pineapple" at index 1 gone. y
+        taskFiveQueue.remove(1); //expected result: IllegalArgumentException y
+
 
         //Test code for task 6.
 

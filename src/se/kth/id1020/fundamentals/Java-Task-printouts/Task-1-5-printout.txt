@@ -1,0 +1,19 @@
+Added Orange to queue. Current size is 4.
+[Banana], [Apple], [Pear], [Orange]
+Added Pineapple to queue. Current size is 5.
+[Banana], [Apple], [Pear], [Orange], [Pineapple]
+Removed Pear from the list, which was at index 3.
+[Banana], [Apple], [Orange], [Pineapple]
+Removed Apple from the list, which was at index 3.
+[Banana], [Orange], [Pineapple]
+Removed Orange from the list, which was at index 2.
+[Banana], [Pineapple]
+Least recently added item will be removed from index 2.
+Removed Banana from queue. Current Queue:
+[Pineapple]
+Removed Pineapple from back of queue. Queue is now empty.
+Exception in thread "main" java.lang.IllegalArgumentException: The queue is not that big!
+	at se.kth.id1020.fundamentals.TaskFiveDoubleLinkedCircularQueue.remove(TaskFiveDoubleLinkedCircularQueue.java:146)
+	at se.kth.id1020.Main.main(Main.java:77)
+
+Process finished with exit code 1
