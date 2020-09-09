@@ -92,8 +92,4 @@ public class Stack<Item> implements Iterable<Item> {
         }
     }
 
-    public String stringifyStack(){
-        return "";
-    }
-
 }

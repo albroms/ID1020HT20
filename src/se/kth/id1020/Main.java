@@ -5,6 +5,8 @@
 package se.kth.id1020;
 
 import se.kth.id1020.fundamentals.*;
+
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main<Item> {
@@ -12,6 +14,7 @@ public class Main<Item> {
     public static void main(String[] args) {
 	// write your code here
 
+        /*
         //Test code for task 2.
         Reverse rev = new Reverse();
         Scanner in = new Scanner(System.in);
@@ -25,7 +28,7 @@ public class Main<Item> {
         System.out.println(rev.iterativeReverse(iterativeStack));
         System.out.println("Result of recursive reverse:");
         System.out.println(rev.recursiveReverse(recursiveStack));
-
+        */
 
         /*
         //Test code for task 3.
@@ -40,10 +43,40 @@ public class Main<Item> {
         queue.dequeue();
         */
 
+
         //Test code for task 4.
+        /*
+
+        DoubleLinkedCircularQueue queue = new DoubleLinkedCircularQueue();
+        Iterator iterator = queue.iterator();
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+        queue.enqueue(4);
+        queue.addToFront(5);
+
+        queue.removeLast();
+        queue.dequeue();
+        */
 
         //Test code for task 5.
+        /*
+        TaskFiveDoubleLinkedCircularQueue taskFiveQueue = new TaskFiveDoubleLinkedCircularQueue();
+        taskFiveQueue.enqueue("Banana");
+        taskFiveQueue.enqueue("Apple");
+        taskFiveQueue.enqueue("Pear");
+        taskFiveQueue.enqueue("Orange");
+        taskFiveQueue.enqueue("Pineapple");
+
+        taskFiveQueue.remove(3); //expected result: "Pear" gone.
+        taskFiveQueue.remove(3); //expected result: "Orange" gone.
+        taskFiveQueue.remove(2); //expected result: "Apple" gone.
+         */
 
         //Test code for task 6.
+
+        /*
+
+        */
     }
 }

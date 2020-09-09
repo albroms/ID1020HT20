@@ -97,6 +97,10 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
         return value;
     }
 
+    /**
+     * Prints the queue contents by using the private printQueue method to recursively run through the queue to print its contents
+     * O(N)
+     */
     public void printQueue(){
         String queue = printQueue(first);
         System.out.println(queue);
@@ -109,6 +113,10 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
         return "[" + node.value.toString() + "], " + printQueue(node.next);
     }
 
+    /**
+     * Prints the queue contents using an iterator.
+     * O(N)
+     */
     public void printIterable(){
         ListIterator<Item> iterator = new ListIterator<>();
         while (iterator.current.next != first){
@@ -120,7 +128,9 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
         }
     }
 
-    @Override
+    /**
+     * Returns a new instance of ListIterator with
+     */
     public Iterator<Item> iterator() {
         return new ListIterator<Item>();
     }
@@ -141,28 +151,51 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
      * Adds an element to the start of the queue.
      * The newly added Node becomes first and last.next will refer to the newly added node.
      * If we add to an empty queue, we can simply reuse the enqueue method.
+     * O(1)
      * @param value the value to be given to the new node.
      */
     public void addToFront(Item value){
         if(isEmpty())
             enqueue(value);
         else{
-
+            Node<Item> oldFirst = first;
+            first = new Node<>();
+            first.value = value;
+            first.prev = last;
+            first.next = oldFirst;
+            last.next = first;
+            oldFirst.prev = first;
         }
-
+        size++;
+        System.out.println("Added " + value + " to front of queue. Current queue:");
+        printQueue();
     }
 
     /**
      * Removes the element at the end of the queue.
      * last.prev becomes the new last and its next node will then refer to the first node.
+     * O(1)
      * @return the value of the dequeued node.
      */
     public Item removeLast(){
+        Item returnValue;
         if(isEmpty())
             throw new NoSuchElementException("Queue underflow.");
-        if(size == 1){
-
+        else if(size == 1){
+            returnValue = last.value;
+            first = null;
+            last = null;
         }
-        return null;
+        else {
+            Node<Item> oldLast = last;
+            returnValue = oldLast.value;
+            last = oldLast.prev;
+            last.next = first;
+            first.prev = last;
+        }
+        size--;
+        System.out.println("Removed " + returnValue + " from back of queue. Current queue:");
+        printQueue();
+        return returnValue;
     }
 }
