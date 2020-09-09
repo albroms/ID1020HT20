@@ -1,0 +1,31 @@
+"C:\Program Files\Java\jdk-10.0.2\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.1.1\lib\idea_rt.jar=55393:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.1.1\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\John\Desktop\ID1020HT20\out\production\Desktop se.kth.id1020.Main
+Added 1 to queue. Current Queue:
+[1]
+Iterative print:
+[1]
+Added 2 to queue. Current Queue:
+[1], [2]
+Iterative print:
+[1], [2]
+Added 3 to queue. Current Queue:
+[1], [2], [3]
+Iterative print:
+[1], [2], [3]
+Added 4 to queue. Current Queue:
+[1], [2], [3], [4]
+Iterative print:
+[1], [2], [3], [4]
+Removed 1 from queue. Current Queue:
+[2], [3], [4]
+Iterative print:
+[2], [3], [4]
+Removed 2 from queue. Current Queue:
+[3], [4]
+Iterative print:
+[3], [4]
+Removed 3 from queue. Current Queue:
+[4]
+Iterative print:
+[4]
+
+Process finished with exit code 0
