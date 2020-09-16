@@ -9,6 +9,7 @@ public class Reverse {
     /**
      * Push each character from the input to a stack.
      * O(N) time complexity since it needs to iterate through the whole char array to create the stack.
+     * O(N) space complexity due to how the stack grows in this method.
      * @param input the given input
      * @return a stack of chars based on input.
      */
@@ -23,6 +24,7 @@ public class Reverse {
     /**
      * Recursively push items to a stack from the given input.
      * O(N) time complexity since it needs to process the entire string given by the user.
+     * O(N) space complexity due to how the stack grows in this method.
      * @param remainingInput the part of the string that hasn't been processed yet.
      * @param stack the stack to push things on to.
      * @return
@@ -35,6 +37,13 @@ public class Reverse {
         return buildStackRecursive(remainingInput.substring(1), stack);
     }
 
+    /**
+     * Iteratively visualize the reversed input.
+     * Time complexity is O(N).
+     * Space complexity is O(1).
+     * @param stack
+     * @return
+     */
     public String iterativeReverse(Stack stack){
         while (!stack.isEmpty()){
             output += "[" + stack.pop() + "], ";
@@ -42,6 +51,13 @@ public class Reverse {
         return output;
     }
 
+    /**
+     * Recursively visualize the reversed input.
+     * Time complexity is O(N).
+     * Space complexity is O(1).
+     * @param stack
+     * @return
+     */
     public String recursiveReverse(Stack stack){
         if(stack.isEmpty()){
             return "";

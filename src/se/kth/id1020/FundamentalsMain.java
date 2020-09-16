@@ -9,7 +9,7 @@ import se.kth.id1020.fundamentals.*;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class Main<Item> {
+public class FundamentalsMain<Item> {
 
     public static void main(String[] args) {
 	// write your code here
@@ -60,6 +60,7 @@ public class Main<Item> {
         */
 
         //Test code for task 5.
+
 
 
         TaskFiveDoubleLinkedCircularQueue taskFiveQueue = new TaskFiveDoubleLinkedCircularQueue();

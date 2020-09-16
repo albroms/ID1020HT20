@@ -44,6 +44,7 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
 
     /**
      * Add an element to the end of the queue.
+     * O(1) time complexity without printQueue/printIterable, O(N) with them.
      * @param value the value of the Node to be added to the end of the queue.
      */
     public void enqueue(Item value) {
@@ -71,6 +72,7 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
 
     /**
      * Remove the first element in the queue.
+     * O(1) time complexity without printQueue/printIterable, O(N) with them.
      * @return the value of the node that was first before removal.
      */
     public Item dequeue(){
@@ -99,7 +101,8 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
 
     /**
      * Prints the queue contents by using the private printQueue method to recursively run through the queue to print its contents
-     * O(N)
+     * O(N) time complexity
+     * O(1) memory complexity
      */
     public void printQueue(){
         String queue = printQueue(first);
@@ -115,7 +118,8 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
 
     /**
      * Prints the queue contents using an iterator.
-     * O(N)
+     * O(N) time complexity
+     * O(1) memory complexity
      */
     public void printIterable(){
         ListIterator<Item> iterator = new ListIterator<>();
@@ -129,7 +133,7 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
     }
 
     /**
-     * Returns a new instance of ListIterator with
+     * Returns a new instance of ListIterator
      */
     public Iterator<Item> iterator() {
         return new ListIterator<Item>();
@@ -151,7 +155,8 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
      * Adds an element to the start of the queue.
      * The newly added Node becomes first and last.next will refer to the newly added node.
      * If we add to an empty queue, we can simply reuse the enqueue method.
-     * O(1)
+     * O(N) time complexity due to the printQueue(), would've been O(1) without it.
+     * O(1) space complexity.
      * @param value the value to be given to the new node.
      */
     public void addToFront(Item value){
@@ -174,7 +179,7 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
     /**
      * Removes the element at the end of the queue.
      * last.prev becomes the new last and its next node will then refer to the first node.
-     * O(1)
+     * O(1) time complexity without printQueue method, O(N) with.
      * @return the value of the dequeued node.
      */
     public Item removeLast(){

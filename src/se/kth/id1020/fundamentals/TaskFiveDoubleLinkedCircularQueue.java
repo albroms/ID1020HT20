@@ -6,7 +6,9 @@ import java.util.NoSuchElementException;
 /**
  * The queue data structure for task 5. I chose to implement a circular double linked list for this task so that
  * I can iterate in two directions. First will have the largest index number and last will have the smallest.
- * @param <Item>
+ *
+ * Time and memory complexities are presented as amortized complexities.
+ * @param <Item> a generic data type
  */
 public class TaskFiveDoubleLinkedCircularQueue<Item> implements Iterable<Item>{
     private Node<Item> first;
@@ -22,6 +24,7 @@ public class TaskFiveDoubleLinkedCircularQueue<Item> implements Iterable<Item>{
 
     /**
      * The Queue constructor, creates an empty queue.
+     * Space complexity is O(1).
      */
     public TaskFiveDoubleLinkedCircularQueue(){
         first = null;
@@ -29,6 +32,11 @@ public class TaskFiveDoubleLinkedCircularQueue<Item> implements Iterable<Item>{
         size = 0;
     }
 
+    /**
+     * Check if the queue is empty.
+     * Time and memory complexities are both O(1).
+     * @return true if empty, false if not.
+     */
     public boolean isEmpty(){
         return first == null;
     }
@@ -40,7 +48,8 @@ public class TaskFiveDoubleLinkedCircularQueue<Item> implements Iterable<Item>{
     /**
      * Add an element to the end of the queue.
      * @param value the value of the Node to be added to the end of the queue.
-     * O(N) because even if the insertion is constant, the index update is linear.
+     * Time complexity is O(N) because even if the insertion is constant, the index update is linear, and printIterable is also linear.
+     * Memory complexity is O(N) because of the way the size of the structure will grow.
      */
     public void enqueue(Item value) {
         if (isEmpty()) {
@@ -76,7 +85,7 @@ public class TaskFiveDoubleLinkedCircularQueue<Item> implements Iterable<Item>{
     /**
      * Remove the first element in the queue.
      * @return the value of the node that was first before removal.
-     * O(1)
+     * Time complexity is O(1)
      */
     public Item dequeue(){
         Item value;
@@ -103,7 +112,8 @@ public class TaskFiveDoubleLinkedCircularQueue<Item> implements Iterable<Item>{
     /**
      * Removes the element at the end of the queue.
      * last.prev becomes the new last and its next node will then refer to the first node.
-     * O(1)
+     * Time complexity is O(1)
+     * Memory complexity is O(1)
      * @return the value of the dequeued node.
      */
     public Item removeLast(){
@@ -136,7 +146,9 @@ public class TaskFiveDoubleLinkedCircularQueue<Item> implements Iterable<Item>{
     /**
      * Remove the kth element from the queue.
      *
-     * O(N)
+     * Time complexity is O(N) because of the while and for loops.
+     * Memory complexity is O(1) due to the set number of variable declarations and because we're removing data from the structure.
+     *
      * @param k the index of the element we wish to remove.
      * @return the value of the removed node.
      */
@@ -181,7 +193,8 @@ public class TaskFiveDoubleLinkedCircularQueue<Item> implements Iterable<Item>{
 
     /**
      * Prints the queue contents using an iterator.
-     * O(N)
+     * Time complexity O(N)
+     * Memory complexity is O(1)
      */
     public void printIterable(){
         ListIterator<Item> iterator = new ListIterator<>();
