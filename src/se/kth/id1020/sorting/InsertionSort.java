@@ -9,20 +9,19 @@ public class InsertionSort {
      * Which will result in a constant memory complexity O(1).
      *
      * @param intArray the array to sort
-     * @return the sorted array
      */
     public void insertionSort(int[] intArray){
         int N = intArray.length;
-        int swaps = 0;
+        long swaps = 0; //for task 2
 
         for(int i=1; i<N; i++){
             for(int j=i; j>0 && intArray[j]<intArray[j-1]; j--){
                 swap(intArray, j, j-1);
-                swaps++;
-                printArray(intArray);
+                //swaps++; //for task 2
+                //printArray(intArray); //for task 1
             }
         }
-        System.out.println("Performed " + swaps + " swaps.");
+        //System.out.println("Performed " + swaps + " swaps."); //for task 2
     }
 
     private void swap(int[] array, int i, int j){
