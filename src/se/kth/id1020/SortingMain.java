@@ -46,6 +46,8 @@ public class SortingMain {
 
         //Task 5-6:
 
+        //commons
+
         //create random arrays
         System.out.println("Please specify a seed for the array generator:");
         int randSeed = in.nextInt();
@@ -57,6 +59,8 @@ public class SortingMain {
         int[] userArray = generator.generateArray(userArraySize, userMin, userMax);
         int[] userArrayCopy = generator.generateCopyOfArray(userArray);
 
+        //task 5:
+        /*
         //time sorting algorithms average case for insertionsort.
         System.out.println("Average case for insertionsort:");
         Timer inSortTimer = new Timer();
@@ -93,5 +97,18 @@ public class SortingMain {
         mSortTimer.reset();
         mSort.mergeSort(ascendingCopy);
         System.out.println("Mergesort took " + mSortTimer.getRunTime() + " ms.");
+        */
+        //task 6
+        Timer timer = new Timer();
+        for(int i=0; i<=30; i++){
+            //fix new array
+            int[] a = generator.generateArray(userArraySize, userMin, userMax);
+
+            //reset timer
+            timer.reset();
+            //sort
+            mSort.mergeSortCutoff(a, i);
+            System.out.println("Sorting took " + timer.getRunTime() + " ms with cutoff " + i);
+        }
     }
 }
