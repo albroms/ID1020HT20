@@ -23,6 +23,9 @@ void orderNegatives(int a[], size_t arraySize){
     printf("Size of array: %lu\n", arraySize);
 
     for(j=1; j < arraySize; j++){
+        if(a[orderedTo] < 0){
+            orderedTo++;
+        }
         if(a[j] < 0){
             int tmp = a[orderedTo];
             a[orderedTo] = a[j];
