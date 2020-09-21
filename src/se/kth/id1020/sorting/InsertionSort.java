@@ -18,10 +18,10 @@ public class InsertionSort {
             for(int j=i; j>0 && intArray[j]<intArray[j-1]; j--){
                 swap(intArray, j, j-1);
                 swaps++; //for task 2
-                //printArray(intArray); //for task 1
+                printArray(intArray); //for task 1
             }
         }
-        //System.out.println("Performed " + swaps + " swaps."); //for task 2
+        System.out.println("Performed " + swaps + " swaps."); //for task 2
     }
 
     private void swap(int[] array, int i, int j){

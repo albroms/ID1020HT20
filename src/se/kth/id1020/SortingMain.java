@@ -24,7 +24,7 @@ public class SortingMain {
         //allow user to specify values.
         int[] userArray = new int[userArraySize];
         int[] mergeArray = new int[userArraySize];
-        /*
+
         System.out.println("Please enter the desired values in the array, one at a time.\nPress enter after each value.");
         for(int i=0; i<userArraySize; i++){
             if(i != 0)
@@ -47,7 +47,6 @@ public class SortingMain {
         //sort array, task 1-3
         inSort.insertionSort(userArray);
 
-        */
 
         //Task 5-6:
         System.out.println("\nTask 5-6:");
