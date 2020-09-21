@@ -54,7 +54,7 @@ public class InsertionSort {
     public void showInversions(int[] array){
         int numberOfInversions = 0;
         for(int i=0; i<array.length; i++){
-            for(int j=1; j<array.length; j++){
+            for(int j=i+1; j<array.length; j++){ //change to j=i+1
                 if(array[i] > array[j]){
                     System.out.println("Inversion found: " + "[index: " + i + ", value: " + array[i] + "], " +
                                                              "[index: " + j + ", value: " + array[j] + "]");
