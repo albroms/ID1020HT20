@@ -2,6 +2,7 @@ package se.kth.id1020;
 
 import se.kth.id1020.sorting.InsertionSort;
 import se.kth.id1020.sorting.MergeSort;
+import se.kth.id1020.sorting.QuickSort;
 
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class SortingMain {
         //prepare sorting algorithms and scanner
         InsertionSort inSort = new InsertionSort();
         MergeSort mSort = new MergeSort();
-        //QuickSort qSort = new QuickSort();
+        QuickSort qSort = new QuickSort();
         Scanner in = new Scanner(System.in);
 
         System.out.println("Please specify the desired size of the array.");
@@ -19,27 +20,17 @@ public class SortingMain {
 
         System.out.println("\nTasks 1-3:");
 
-
-
-        //allow user to specify values.
         int[] userArray = new int[userArraySize];
-        int[] mergeArray = new int[userArraySize];
+
+        /*
+        //allow user to specify values. (tasks 1-3)
 
         System.out.println("Please enter the desired values in the array, one at a time.\nPress enter after each value.");
         for(int i=0; i<userArraySize; i++){
             if(i != 0)
                 System.out.println("Please enter next value.");
             userArray[i] = in.nextInt();
-            mergeArray[i] = userArray[i];
         }
-
-        //verify setup correct
-        System.out.println("Array for insertion sort test:");
-        inSort.printArray(userArray);
-        System.out.println("Array for merge sort test:");
-        mSort.printArray(userArray);
-
-
 
         //count inversions for task 3
         inSort.showInversions(userArray);
@@ -47,12 +38,12 @@ public class SortingMain {
         //sort array, task 1-3
         inSort.insertionSort(userArray);
 
-
+        */
         //Task 5-6:
         System.out.println("\nTask 5-6:");
         //commons
 
-        //create random arrays
+        //prepare generator
         System.out.println("Please specify a seed for the array generator:");
         int randSeed = in.nextInt();
         RandomIntArrayGenerator generator = new RandomIntArrayGenerator(randSeed);
@@ -60,18 +51,23 @@ public class SortingMain {
         int userMin = in.nextInt();
         System.out.println("Please specify maximum value in array:");
         int userMax = in.nextInt();
+
+        //prepare timer
+        Timer timer = new Timer();
+
+        //generate random array and copy
         int[] userArrayTwo = generator.generateArray(userArraySize, userMin, userMax);
         int[] userArrayTwoCopy = generator.generateCopyOfArray(userArray);
 
         //task 5:
-
+        /*
         //time sorting algorithms average case for insertion sort.
         System.out.println("Average case for insertion sort:");
-        Timer inSortTimer = new Timer();
+        timer.reset();
         inSort.insertionSort(userArrayTwo);
         System.out.println("Insertion sort took " + inSortTimer.getRunTime() + " ms.");
 
-        Timer mSortTimer = new Timer();
+        timer.reset();
         mSort.mergeSort(userArrayTwoCopy);
         System.out.println("Merge sort took " + mSortTimer.getRunTime() + " ms.");
 
@@ -80,11 +76,11 @@ public class SortingMain {
         int[] descendingCopy = generator.generateCopyOfArray(descending);
 
         System.out.println("Worst case for insertion sort:");
-        inSortTimer.reset();
+        timer.reset();
         inSort.insertionSort(descending);
         System.out.println("Insertionsort took " + inSortTimer.getRunTime() + " ms.");
 
-        mSortTimer.reset();
+        timer.reset();
         mSort.mergeSort(descendingCopy);
         System.out.println("Mergesort took " + mSortTimer.getRunTime() + " ms.");
 
@@ -94,17 +90,16 @@ public class SortingMain {
 
         System.out.println("Best case for insertion sort:");
 
-        inSortTimer.reset();
+        timer.reset();
         inSort.insertionSort(ascending);
         System.out.println("Insertionsort took " + inSortTimer.getRunTime() + " ms.");
 
-        mSortTimer.reset();
+        timer.reset();
         mSort.mergeSort(ascendingCopy);
         System.out.println("Mergesort took " + mSortTimer.getRunTime() + " ms.");
 
 
         //task 6
-        Timer timer = new Timer();
         for(int i=0; i<=30; i++){
             //fix new array
             int[] a = generator.generateArray(userArraySize, userMin, userMax);
@@ -122,6 +117,39 @@ public class SortingMain {
         inSort.insertionSortDescending(descendArray);
         System.out.print("After descending sort, ");
         inSort.printArray(descendArray);
+        */
+        //Extra task 2:
+        System.out.println("\nExtra task 2:");
 
+        int[] quickSortArray = generator.generateArray(userArraySize, userMin, userMax);
+        int[] mergeSortArray = generator.generateCopyOfArray(quickSortArray);
+
+        System.out.println("\nRandom array:");
+        timer.reset();
+        qSort.quickSort(quickSortArray);
+        System.out.println("Quicksort took " + timer.getRunTime() + "ms.");
+        timer.reset();
+        mSort.mergeSort(mergeSortArray);
+        System.out.println("Mergesort took " + timer.getRunTime() + "ms.");
+
+        System.out.println("\nAlready sorted:");
+        quickSortArray = generator.generateSortedAscending(userArraySize);
+        mergeSortArray = generator.generateCopyOfArray(quickSortArray);
+        timer.reset();
+        qSort.quickSort(quickSortArray);
+        System.out.println("Quicksort took " + timer.getRunTime() + "ms.");
+        timer.reset();
+        mSort.mergeSort(mergeSortArray);
+        System.out.println("Mergesort took " + timer.getRunTime() + "ms.");
+
+        System.out.println("\nArray with identical items:");
+        quickSortArray = generator.generateArrayWithOnes(userArraySize);
+        mergeSortArray = generator.generateCopyOfArray(quickSortArray);
+        timer.reset();
+        qSort.quickSort(quickSortArray);
+        System.out.println("Quicksort took " + timer.getRunTime() + "ms.");
+        timer.reset();
+        mSort.mergeSort(mergeSortArray);
+        System.out.println("Mergesort took " + timer.getRunTime() + "ms.");
     }
 }

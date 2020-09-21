@@ -55,4 +55,12 @@ public class RandomIntArrayGenerator {
         }
         return sorted;
     }
+
+    public int[] generateArrayWithOnes(int arraySize){
+        int[] ones = new int[arraySize];
+        for(int i=0; i<ones.length; i++){
+            ones[i] = 1;
+        }
+        return ones;
+    }
 }
