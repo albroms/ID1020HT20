@@ -1,6 +1,6 @@
 Programming assignments for grade E:
 
-   1. Implement insertionsort. Augment the sorting process so that all the content of the array that is being sorted is
+   1. Implement insertion sort. Augment the sorting process so that all the content of the array that is being sorted is
    printed after each inner loop iteration.
    Write a unit test in main() which allows the user to define the size of the input (N) and then input (N) integers
    from stdin which is to be sorted.
@@ -16,8 +16,8 @@ Programming assignments for grade E:
     collect all negative values first. The algorithm should only use O(1) extra memory
     (i.e. be in-place Wikipedia: In-place algorithm)
 
-   5. Compare the execution times for sorting large arrays of integers with insertionsort and merge sort.
-   When should one select mergesort over insertionsort? Upload code, tests and a graphs depicting the execution times as
+   5. Compare the execution times for sorting large arrays of integers with insertion sort and merge sort.
+   When should one select mergesort over insertion sort? Upload code, tests and a graphs depicting the execution times as
     a function of input (what parameters in the input could be relevant?).
 
    6. Experiment with the cut-off to insertionsort in merge. How is the execution time affected by different values for

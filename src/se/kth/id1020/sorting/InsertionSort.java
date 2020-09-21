@@ -17,7 +17,7 @@ public class InsertionSort {
         for(int i=1; i<N; i++){
             for(int j=i; j>0 && intArray[j]<intArray[j-1]; j--){
                 swap(intArray, j, j-1);
-                //swaps++; //for task 2
+                swaps++; //for task 2
                 //printArray(intArray); //for task 1
             }
         }
@@ -63,5 +63,16 @@ public class InsertionSort {
             }
         }
         System.out.println("Found " + numberOfInversions + " inversions.");
+    }
+
+    //higher grade task 1
+    public void insertionSortDescending(int[] array){
+        for(int i=0; i<array.length; i++){
+            array[i] = array[i] * -1;
+        }
+        insertionSort(array);
+        for(int i=0; i<array.length; i++){
+            array[i] = array[i] * -1;
+        }
     }
 }
