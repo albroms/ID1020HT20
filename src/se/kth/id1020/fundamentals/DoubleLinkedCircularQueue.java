@@ -64,10 +64,12 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
             last.next = first;
         }
         size++;
+        /*
         System.out.println("Added " + value + " to queue. Current Queue:");
         printQueue();
         System.out.println("Iterative print:");
         printIterable();
+        */
     }
 
     /**
@@ -92,10 +94,12 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
             last.next = first;
         }
         size--;
+        /*
         System.out.println("Removed " + value + " from queue. Current Queue:");
         printQueue();
         System.out.println("Iterative print:");
         printIterable();
+        */
         return value;
     }
 

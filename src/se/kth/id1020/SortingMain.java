@@ -22,9 +22,8 @@ public class SortingMain {
 
         int[] userArray = new int[userArraySize];
 
-        /*
         //allow user to specify values. (tasks 1-3)
-
+        /*
         System.out.println("Please enter the desired values in the array, one at a time.\nPress enter after each value.");
         for(int i=0; i<userArraySize; i++){
             if(i != 0)
@@ -65,11 +64,11 @@ public class SortingMain {
         System.out.println("Average case for insertion sort:");
         timer.reset();
         inSort.insertionSort(userArrayTwo);
-        System.out.println("Insertion sort took " + inSortTimer.getRunTime() + " ms.");
+        System.out.println("Insertion sort took " + timer.getRunTime() + " ms.");
 
         timer.reset();
         mSort.mergeSort(userArrayTwoCopy);
-        System.out.println("Merge sort took " + mSortTimer.getRunTime() + " ms.");
+        System.out.println("Merge sort took " + timer.getRunTime() + " ms.");
 
         //time sorting algorithms worst case for insertionsort.
         int[] descending = generator.generateSortedDescending(userArraySize);
@@ -78,11 +77,11 @@ public class SortingMain {
         System.out.println("Worst case for insertion sort:");
         timer.reset();
         inSort.insertionSort(descending);
-        System.out.println("Insertionsort took " + inSortTimer.getRunTime() + " ms.");
+        System.out.println("Insertionsort took " + timer.getRunTime() + " ms.");
 
         timer.reset();
         mSort.mergeSort(descendingCopy);
-        System.out.println("Mergesort took " + mSortTimer.getRunTime() + " ms.");
+        System.out.println("Mergesort took " + timer.getRunTime() + " ms.");
 
         //time sorting algorithms best case for insertionsort.
         int[] ascending = generator.generateSortedAscending(userArraySize);
@@ -92,11 +91,13 @@ public class SortingMain {
 
         timer.reset();
         inSort.insertionSort(ascending);
-        System.out.println("Insertionsort took " + inSortTimer.getRunTime() + " ms.");
+        System.out.println("Insertionsort took " + timer.getRunTime() + " ms.");
 
         timer.reset();
         mSort.mergeSort(ascendingCopy);
-        System.out.println("Mergesort took " + mSortTimer.getRunTime() + " ms.");
+        System.out.println("Mergesort took " + timer.getRunTime() + " ms.");
+
+        */
 
 
         //task 6
@@ -111,13 +112,14 @@ public class SortingMain {
             System.out.println("Sorting took " + timer.getRunTime() + " ms with cutoff " + i);
         }
 
+        /*
         //Extra task 1:
         System.out.println("\nExtra task 1:");
         int[] descendArray = new int[]{1, 2, 4, 3, 5, 0};
         inSort.insertionSortDescending(descendArray);
         System.out.print("After descending sort, ");
         inSort.printArray(descendArray);
-        */
+
         //Extra task 2:
         System.out.println("\nExtra task 2:");
 
@@ -151,5 +153,7 @@ public class SortingMain {
         timer.reset();
         mSort.mergeSort(mergeSortArray);
         System.out.println("Mergesort took " + timer.getRunTime() + "ms.");
+
+         */
     }
 }
