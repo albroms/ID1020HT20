@@ -1,6 +1,7 @@
 package se.kth.id1020;
 
 import se.kth.id1020.searching.FrequencyCounter;
+import se.kth.id1020.searching.HashTable;
 import se.kth.id1020.searching.OrderedArrayST;
 import se.kth.id1020.searching.TreeST;
 
@@ -9,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class SearchingMain {
+
     public static void main(String[] args) {
         //instantiate the necessary classes
         File file = new File("./src/se/kth/id1020/searching/TheTextFiltered.txt");
@@ -16,6 +18,7 @@ public class SearchingMain {
         Timer timer = new Timer();
         OrderedArrayST<String, Integer> st = null;
         TreeST<String, Integer> tree = null;
+
 
 
         //user provides input
@@ -70,5 +73,41 @@ public class SearchingMain {
             System.out.println(freqCountErrMsg);
         }
 
+        //Test hash table
+        System.out.println("\nHash table test:");
+        HashTable hashTable = new HashTable<>();
+
+        try {
+            st = freqCount.buildArrayST(file); //ST with words and frequencies
+            for(String word : st.keys()){
+                //put each word in the hash table
+                int freq = st.get(word);
+                hashTable.put(word, freq);
+            }
+            System.out.println("Hash table built successfully.");
+            hashTable.showHashDistribution();
+        }
+        catch (FileNotFoundException e){
+            System.out.println(buildErrorMsg);
+        }
+
+        //Test tree prints
+        /*
+        try {
+            TreeST treeToPrint = freqCount.buildTree(file);
+            System.out.println("\nInfix:");
+            treeToPrint.printTreeInfix();
+            System.out.println("\nPrefix:");
+            treeToPrint.printTreePrefix();
+            System.out.println("\nPostfix:");
+            treeToPrint.printTreePostfix();
+        }
+        catch (FileNotFoundException e){
+            System.out.println(buildErrorMsg);
+        }
+        catch (NullPointerException e){
+            System.out.println("One or more of the print methods failed because it tried to print an unexpected null value.");
+        }
+        */
     }
 }

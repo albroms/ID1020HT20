@@ -4,8 +4,14 @@ import se.kth.id1020.fundamentals.DoubleLinkedCircularQueue;
 
 import java.util.NoSuchElementException;
 
+/**
+ * TODO: Calculate time complexity.
+ * @param <Key>
+ * @param <Value>
+ */
+
 public class TreeST<Key extends Comparable<Key>, Value> {
-    Node root;
+    public Node root;
 
     private class Node{
         //a node represents a subtree.
@@ -137,5 +143,67 @@ public class TreeST<Key extends Comparable<Key>, Value> {
         queue.enqueue(tree.key.toString());
         addKeysFromTree(tree.left, queue);
         addKeysFromTree(tree.right, queue);
+    }
+
+    /**
+     * Print the contents of the tree in infix order.
+     */
+    public void printTreeInfix(){
+        System.out.println(printTreeInfix(this.root));
+    }
+    private String printTreeInfix(Node tree){
+        if(tree == null){
+            return "{null}";
+        }
+        else if(tree.left == null && tree.right == null){
+            //found a leaf, print the leaf's key
+            return "{" + tree.key.toString() + ", " + tree.val.toString() + "}";
+        }
+        else {
+            return "[" + printTreeInfix(tree.left) + "], " + printRoot(tree) + ", [" + printTreeInfix(tree.right) + "]";
+        }
+    }
+
+    /**
+     * Print the contents of the tree in prefix order.
+     */
+    public void printTreePrefix(){
+        System.out.println(printTreePrefix(this.root));
+    }
+    private String printTreePrefix(Node tree){
+        if(tree == null){
+            return "{null}";
+        }
+        else if(tree.left == null && tree.right == null){
+            //found a leaf node, print the leaf's key-value pair.
+            return "{" + tree.key.toString() + ", " + tree.val.toString() + "}";
+        }
+        else {
+            return printRoot(tree) + "[" + printTreePrefix(tree.left) + ", " + printTreePrefix(tree.right) + "]";
+        }
+    }
+
+    /**
+     * Print the contents of the tree in postfix order.
+     */
+    public void printTreePostfix(){
+        System.out.println(printTreePostfix(this.root));
+    }
+    private String printTreePostfix(Node tree){
+        if(tree == null){
+            //found a null branch
+            return "{null}";
+        }
+        else if(tree.left == null && tree.right == null){
+            //found a leaf, print the leaf's key
+            return "{" + tree.key.toString() + ", " + tree.val.toString() + "}";
+        }
+        else {
+            return "[" + printTreePostfix(tree.left) + ", " + printTreePostfix(tree.right) + "]" + printRoot(tree);
+        }
+    }
+
+    private String printRoot(Node tree){
+        return "{" + tree.key + ", " + tree.val + "}";
     }
 }

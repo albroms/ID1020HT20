@@ -18,10 +18,11 @@ Programming assignments for grade E:
 Theory questions for grade E:
 
 Show means that you should be able to project the code/files you have uploaded in Canvas from Canvas from your own computer or the teachers. I.e. you cannot use another file than the one you have uploaded in Canvas. You should be able to explain your code and your design choices in detail as well as how you have come up with the answers to theory questions. When comparing execution times make sure that the experiments are useful, i.e. show facts.
-
+   1.
     a) Show how a binary search tree  is built when the following sequence of keys are inserted: W O E C A L H
     b) Show the output if the content of the trees is printed in pre-, in- and postfix order
-     Explain/show how you measured the execution times in programming assignment 2 and how the results compare to what the theoretical calculations would suggest
+
+   2. Explain/show how you measured the execution times in programming assignment 2 and how the results compare to what the theoretical calculations would suggest
 
 Higher grade problem:
 

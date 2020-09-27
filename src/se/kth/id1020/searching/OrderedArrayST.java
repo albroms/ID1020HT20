@@ -1,7 +1,11 @@
 package se.kth.id1020.searching;
 
-import se.kth.id1020.fundamentals.DoubleLinkedCircularQueue;
+import se.kth.id1020.fundamentals.SimpleQueue;
 
+/**
+ * @param <Key>
+ * @param <Value>
+ */
 public class OrderedArrayST <Key extends Comparable<Key>, Value>{
     private Key[] keys;
     private Value[] vals;
@@ -11,6 +15,17 @@ public class OrderedArrayST <Key extends Comparable<Key>, Value>{
         //See method below for array-resizing code.
         keys = (Key[]) new Comparable[capacity];
         vals = (Value[]) new Object[capacity];
+    }
+
+    /**
+     * Default constructor that creates arrays with a capacity of 1 element.
+     * This should be a resizable array.
+     */
+    public OrderedArrayST(){
+        int defaultCap = 0;
+        this.size = defaultCap;
+        keys = (Key[]) new Comparable[defaultCap];
+        vals = (Value[]) new Object[defaultCap];
     }
 
     private void resize(int newMax){
@@ -36,12 +51,22 @@ public class OrderedArrayST <Key extends Comparable<Key>, Value>{
         return get(key) != null;
     }
 
+    /**
+     * O(N)
+     * @param key
+     * @param val
+     */
     public void put(Key key, Value val){
         int i = rank(key);
         //check that there is enough space to continue
         if(size == keys.length){
-            int newSize = 2*keys.length;
-            resize(newSize);
+            if(size == 0){
+                resize(1);
+            }
+            else {
+                int newSize = 2*keys.length;
+                resize(newSize);
+            }
         }
 
         if(i < size && keys[i].compareTo(key) == 0){
@@ -57,6 +82,11 @@ public class OrderedArrayST <Key extends Comparable<Key>, Value>{
         size++;
     }
 
+    /**
+     * O(log(N))
+     * @param key
+     * @return
+     */
     public Value get(Key key){
         if(isEmpty())
             return null;
@@ -70,7 +100,8 @@ public class OrderedArrayST <Key extends Comparable<Key>, Value>{
     }
 
     /**
-     * Returns the number of keys less than the parameter key
+     * Returns the number of keys strictly less than the parameter key.
+     * O(log(N))
      * @param key the reference key
      * @return number of keys with "lower value" than the reference key.
      */
@@ -90,8 +121,26 @@ public class OrderedArrayST <Key extends Comparable<Key>, Value>{
         return lo;
     }
 
+    //min() and max()
+    public Key min(){ return keys[0];}
+    public Key max(){ return keys[size-1];}
+
+    /**
+     * Return an iterable which iterates through all the keys
+     * @return an iterable with all the keys
+     */
+    public Iterable<Key> keys(){
+        return keys(min(), max());
+    }
+
+    /**
+     * Return an iterable which iterates through the keys in a given interval
+     * @param lo the lower bounds
+     * @param hi the upper bounds
+     * @return an iterable with the keys in the given span
+     */
     public Iterable<Key> keys(Key lo, Key hi){
-        DoubleLinkedCircularQueue<Key> q = new DoubleLinkedCircularQueue<>();
+        SimpleQueue<Key> q = new SimpleQueue<>();
         for(int i = rank(lo); i < rank(hi); i++){
             q.enqueue(keys[i]);
         }

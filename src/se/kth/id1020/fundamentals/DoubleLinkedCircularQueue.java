@@ -126,7 +126,7 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
      * O(1) memory complexity
      */
     public void printIterable(){
-        ListIterator<Item> iterator = new ListIterator<>();
+        ListIterator iterator = new ListIterator();
         while (iterator.current.next != first){
             System.out.print("[" + iterator.current.value + "], ");
             iterator.next();
@@ -140,9 +140,9 @@ public class DoubleLinkedCircularQueue<Item> implements Iterable<Item>{
      * Returns a new instance of ListIterator
      */
     public Iterator<Item> iterator() {
-        return new ListIterator<Item>();
+        return new ListIterator();
     }
-    private class ListIterator<I> implements Iterator<Item>{
+    private class ListIterator implements Iterator<Item>{
         private Node<Item> current = first;
         public boolean hasNext(){ return current != null;}
         public void remove(){}

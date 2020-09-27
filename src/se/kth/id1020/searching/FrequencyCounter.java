@@ -14,7 +14,7 @@ public class FrequencyCounter {
     }
 
     /**
-     * Build an ordered array representation of a symbol table using the provided file and scanner.
+     * Build an ordered array representation of a symbol table using the provided file.
      * @param textFile the text file to use
      * @return the built symbol table
      * @throws FileNotFoundException if the filepath is invalid
@@ -31,6 +31,8 @@ public class FrequencyCounter {
                     //A word consisting of at least one letter.
                     numberOfWordsScanned++;
                 if(word.length() >= minLen){
+                    //make lowercase?
+                    word = word.toLowerCase();
                     //A word of a length we actually think is significant.
                     if(!st.contains(word))
                         //new word
@@ -65,6 +67,8 @@ public class FrequencyCounter {
                     numberOfWordsScanned++;
                 }
                 if(word.length() >= minLen){
+                    //make lowercase?
+                    word = word.toLowerCase();
                     //A word of a length we actually think is significant.
                     if(!bt.contains(word)){
                         //new word
