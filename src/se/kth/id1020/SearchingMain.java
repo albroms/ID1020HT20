@@ -9,6 +9,26 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Theoretical orders of growth for task 2:
+ *
+ * Binary Search ST:
+ *  put():
+ *      worst, 2N
+ *      average, N
+ *  get():
+ *      worst, log(N)
+ *      average, log(N)
+ *
+ * Binary Search Tree:
+ *  put():
+ *      worst, N
+ *      average, 1.39log(N)
+ *  get():
+ *      worst, N
+ *      average 1.39log(N)
+ */
+
 public class SearchingMain {
 
     public static void main(String[] args) {
