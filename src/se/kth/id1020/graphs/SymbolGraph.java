@@ -8,6 +8,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * The purpose of the Symbol graph is to provide an API that allows the use of the graph and digraph classes with vertices
+ * identified by their integers for purposes where we prefer using Strings to identify different vertices.
+ * Its components are an ordered array symbol table, a string array where each index(vertex in the graphs) is associated
+ * with a String value, and the two types of graphs. This class is necessary for all three tasks.
+ */
+
 public class SymbolGraph {
     private OrderedArrayST<String, Integer> st; //String -> index
     private String[] keys; //index -> String

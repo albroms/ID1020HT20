@@ -5,13 +5,17 @@ import se.kth.id1020.fundamentals.Stack;
 import se.kth.id1020.graphs.directedgraph.DGraph;
 import se.kth.id1020.graphs.undirectedgraph.UGraph;
 
+/**
+ * Class for finding paths using the breadth first search algorithm.
+ * Provides the main logic for task 2 and 3.
+ */
 public class BreadthFirstPaths {
-    private boolean[] visited; //each index represents a vertex and stores whether or not it has been visited.
-    private int[] edgeTo; //
+    private boolean[] visited;
+    private int[] edgeTo;
     private final int source;
 
     /**
-     * Constructor for undirected graphs
+     * Constructor for undirected graphs for task 2
      * @param g the graph
      * @param source the source vertex
      */
@@ -23,7 +27,7 @@ public class BreadthFirstPaths {
     }
 
     /**
-     * Constructor for directed graphs
+     * Constructor for directed graphs for task 3
      * @param g the graph
      * @param source the source vertex
      */
@@ -34,6 +38,7 @@ public class BreadthFirstPaths {
         bfs(g, source);
     }
 
+    //task 2
     private void bfs(UGraph g, int s){
         SimpleQueue<Integer> q = new SimpleQueue<>();
         visited[s] = true;
@@ -50,6 +55,7 @@ public class BreadthFirstPaths {
         }
     }
 
+    //task 3
     private void bfs(DGraph g, int s){
         SimpleQueue<Integer> q = new SimpleQueue<>();
         visited[s] = true;
@@ -76,7 +82,7 @@ public class BreadthFirstPaths {
     }
 
     /**
-     * Returns an iterable stack containing a path between the source vertex and the provided path.
+     * Returns an iterable stack containing a path between the source vertex and the provided destination.
      * @param v the destination vertex
      * @return null if no path is found, otherwise the stack containing the path is returned
      */

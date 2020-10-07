@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class GraphsMain {
+    //test for task 1
     private static void testDFS(int source, int end, SymbolGraph symbolGraph){
         System.out.println("\nDepth First Path result:");
         DepthFirstPaths undirectedDFPath = new DepthFirstPaths(symbolGraph.getUGraph(), source);
@@ -22,6 +23,7 @@ public class GraphsMain {
             }
         }
     }
+    //test for task 2
     private static void testBFS(int source, int end, SymbolGraph symbolGraph){
         System.out.println("\nBreadth First Path result:");
         BreadthFirstPaths undirectedBFPath = new BreadthFirstPaths(symbolGraph.getUGraph(), source);
@@ -35,6 +37,7 @@ public class GraphsMain {
             }
         }
     }
+    //test for task 3
     private static void testDirected(int source, int end, SymbolGraph symbolGraph){
 
         System.out.println("\nDirected Paths test:");
@@ -98,6 +101,5 @@ public class GraphsMain {
         catch (NullPointerException e){
             System.out.println("Something went wrong with finding the path!");
         }
-
     }
 }

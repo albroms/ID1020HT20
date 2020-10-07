@@ -4,13 +4,17 @@ import se.kth.id1020.fundamentals.Stack;
 import se.kth.id1020.graphs.directedgraph.DGraph;
 import se.kth.id1020.graphs.undirectedgraph.UGraph;
 
+/**
+ * Class for finding paths using the depth first search algorithm.
+ * Provides the main logic for task 1 and 3.
+ */
 public class DepthFirstPaths {
     private boolean[] visited;
     private int[] edgeTo;
     private final int source;
 
     /**
-     * Constructor for undirected graphs
+     * Constructor for undirected graphs for task 1
      * @param g the graph
      * @param source the source vertex
      */
@@ -22,7 +26,7 @@ public class DepthFirstPaths {
     }
 
     /**
-     * Constructor for directed graphs
+     * Constructor for directed graphs for task 3.
      * @param g the graph
      * @param source the source vertex
      */
@@ -33,6 +37,7 @@ public class DepthFirstPaths {
         dfs(g, source);
     }
 
+    //task 1
     private void dfs(UGraph g, int v){
         visited[v] = true;
         for(int w : g.adj(v)){
@@ -43,6 +48,7 @@ public class DepthFirstPaths {
         }
     }
 
+    //for task 3
     private void dfs(DGraph g, int v){
         visited[v] = true;
         for(int w : g.adj(v)){
