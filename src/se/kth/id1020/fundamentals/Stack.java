@@ -49,7 +49,7 @@ public class Stack<Item> implements Iterable<Item> {
         first.value = value;
         first.next = oldFirst;
         size++;
-        System.out.println(this.toString());
+        //System.out.println(this.toString());
     }
 
     /**

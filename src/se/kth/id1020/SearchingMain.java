@@ -112,7 +112,6 @@ public class SearchingMain {
         }
 
         //Test tree prints
-        /*
         try {
             TreeST treeToPrint = freqCount.buildTree(file);
             System.out.println("\nInfix:");
@@ -128,6 +127,5 @@ public class SearchingMain {
         catch (NullPointerException e){
             System.out.println("One or more of the print methods failed because it tried to print an unexpected null value.");
         }
-        */
     }
 }
